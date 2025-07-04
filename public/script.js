@@ -1,16 +1,20 @@
-const apiUrl = "/dados"; // Já funciona porque frontend e backend estão juntos no Render
+const apiUrl = "https://painel-solar-api.onrender.com/dados"; 
 
 async function buscarDados() {
-    const resposta = await fetch(apiUrl);
-    const dados = await resposta.json();
+    try {
+        const resposta = await fetch(apiUrl);
+        const dados = await resposta.json();
 
-    if (dados.length > 0) {
-        const ultimo = dados[dados.length - 1];
-        document.getElementById('radiacao').textContent = ultimo.radiacao;
-        document.getElementById('energia').textContent = ultimo.energia.toFixed(2) + " W";
+        if (dados.length > 0) {
+            const ultimo = dados[dados.length - 1];
+            document.getElementById('radiacao').textContent = ultimo.radiacao;
+            document.getElementById('energia').textContent = ultimo.energia.toFixed(2) + " W";
 
-        montarTabela(dados);
-        montarGrafico(dados);
+            montarTabela(dados);
+            montarGrafico(dados);
+        }
+    } catch (erro) {
+        console.error("Erro ao buscar dados:", erro);
     }
 }
 
@@ -54,6 +58,5 @@ function montarGrafico(dados) {
     });
 }
 
-// Atualiza a cada 5 segundos
 setInterval(buscarDados, 5000);
 buscarDados();
