@@ -3,35 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Relatório Solar - Área Portuária</title>
+    <title>Relatório - Painel Solar Portuário</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>☀️ Monitoramento Solar - Armazenagem Portuária</h1>
+        <h1>Relatório de Energia Solar - Porto</h1>
+        <p>Monitoramento em tempo real da energia gerada pelos painéis solares nas áreas de armazenagem portuária.</p>
     </header>
 
-    <section class="relatorio">
-        <h2>Relatório de Energia</h2>
-        <table id="tabela-dados">
+    <section class="info">
+        <div class="card">
+            <h2>Última Radiação</h2>
+            <p id="radiacao">--</p>
+        </div>
+        <div class="card">
+            <h2>Última Energia (W)</h2>
+            <p id="energia">--</p>
+        </div>
+    </section>
+
+    <section class="grafico">
+        <h2>Histórico de Energia (últimas medições)</h2>
+        <canvas id="graficoEnergia"></canvas>
+    </section>
+
+    <section class="tabela">
+        <h2>Relatório Completo</h2>
+        <table>
             <thead>
                 <tr>
-                    <th>Horário</th>
-                    <th>Radiação (LDR)</th>
+                    <th>Data/Hora</th>
+                    <th>Radiação</th>
                     <th>Energia (W)</th>
                 </tr>
             </thead>
-            <tbody></tbody>
+            <tbody id="tabelaDados"></tbody>
         </table>
-
-        <canvas id="grafico"></canvas>
     </section>
 
     <footer>
-        <p>Desenvolvido para competição - Plataforma de Simulação de Painéis Solares</p>
+        <p>Desenvolvido para simulação de painéis solares portuários.</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
