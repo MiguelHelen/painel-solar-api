@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Simulação - Energia Solar Portuária</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
@@ -10,8 +10,8 @@
 <body>
 
 <header>
-  <h1>Simulação de Energia Solar - Porto</h1>
-  <p>Monitoramento em tempo real da geração de energia solar nas áreas de armazenagem portuária.</p>
+  <h1>Simulação de Energia Solar - Porto <span class="icone-solar" aria-label="Sol">☀️</span></h1>
+  <p>Monitoramento em tempo real da geração de energia solar nas áreas portuárias.</p>
 </header>
 
 <section class="metricas">
@@ -27,9 +27,25 @@
     <h4>Produção do Dia</h4>
     <h2 id="producaoDia">0 / 5000 W</h2>
     <div class="progress">
-      <div id="barraProgresso" class="progress-bar bg-success" role="progressbar" style="width: 0%"></div>
+      <div id="barraProgresso" class="progress-bar bg-success" role="progressbar"></div>
     </div>
   </div>
+</section>
+
+<section class="conteudo-extra">
+  <h3>Energia Solar no Porto</h3>
+  <p>A implementação de sistemas fotovoltaicos nos portos contribui para reduzir custos operacionais e as emissões de carbono. Este projeto simula, em tempo real, a produção energética de painéis solares instalados nas áreas de armazenagem e operações logísticas portuárias.</p>
+
+  <h4>Vantagens da Energia Solar no Setor Portuário</h4>
+  <ul>
+    <li>Redução de custos com eletricidade</li>
+    <li>Diminuição da pegada de carbono</li>
+    <li>Energia limpa e renovável</li>
+    <li>Maior independência energética</li>
+  </ul>
+
+  <h4>Curiosidades</h4>
+  <p>Sabia que o Porto de Santos movimenta mais de 100 milhões de toneladas de carga por ano? Imagine o impacto positivo ao integrar soluções solares em operações dessa magnitude.</p>
 </section>
 
 <section>
@@ -58,12 +74,16 @@
   </div>
 </section>
 
+<section class="grafico">
+  <h4>Comparativo de Produção Mensal</h4>
+  <canvas id="graficoMensal"></canvas>
+</section>
+
 <footer>
-  <p>Simulação de painéis solares para planejamento portuário com IoT. Projeto acadêmico.</p>
+  <p>Projeto acadêmico de simulação de painéis solares para planejamento energético portuário com IoT.</p>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="script.js"></script>
-
 </body>
 </html>
