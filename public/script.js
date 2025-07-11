@@ -107,7 +107,7 @@ function montarGraficoDiario(dados) {
   const ctx = document.getElementById('graficoMensal').getContext('2d');
   if (graficoMensal) graficoMensal.destroy();
 
-  // Agrupando produção total por dia
+  
   const producaoPorDia = {};
 
   dados.forEach(item => {
