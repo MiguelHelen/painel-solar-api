@@ -22,4 +22,4 @@ Projeto que coleta dados de placas solares e os converte em gráficos e armazena
 - **Infraestrutura**: Detalhes sobre a instalação e componentes do sistema solar.
 - **Tipos de Energia**: Explicação sobre diferentes fontes de energia utilizadas.
 
-![Footer](https://capsule-render.vercel.app/api?type=waving&height=100&color=FFFF993&section=footer)
+![Footer](https://capsule-render.vercel.app/api?type=waving&height=100&color=FFFF99&section=footer)
