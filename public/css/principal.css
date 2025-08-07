@@ -1,3 +1,26 @@
+/* Linha informativa abaixo do header */
+.linha-informativa {
+  background-color: #424242;
+  width: 100%;
+  padding: 12px 0;
+  text-align: center;
+}
+
+.linha-informativa span {
+  color: #FFB200;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Centralização do menu de abas */
+.navbar ul {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
 * {
   margin: 0;
