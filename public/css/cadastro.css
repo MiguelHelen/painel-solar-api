@@ -84,9 +84,6 @@ input:hover{
     .formside, .logoside{
         width: 100vw;
     }
-    .logoside{
-        height: 50vh;
-    }
 }
 @media(max-height: 700px){
     .formside img{
@@ -110,9 +107,6 @@ input:hover{
     }
     .formside, .logoside{
         width: 100vw;
-    }
-    .logoside{
-        height: 50vh;
     }
 }
 @media(max-width: 1400px){
