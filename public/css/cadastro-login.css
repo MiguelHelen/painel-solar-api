@@ -2,25 +2,18 @@
     margin: 0;
     padding: 0;
     font-family: 'Poppins';
-}
-header{
-    width: 100vw;
-    height: 10vh;
-    position: fixed;
-    background-color: aqua;
-    top: 0;
-    box-shadow: 0 0 10px black;
+    overflow: hidden;
 }
 main{
     display: flex;
     width: 100vw;
-    padding-top: 10vh;
-    height: 80vh;
+    height: 100vh;
 }
 .formside{
     height: 100%;
     width: 50%;
     text-align: center;
+    margin-top: 5vh;
 }
 .formside img{
     height: 20%;
@@ -74,11 +67,40 @@ input:hover{
     width: 100%;
     margin: auto;
 }
-footer{
-    width: 100vw;
-    height: 10vh;
-    position: fixed;
-    background-color: aqua;
-    bottom: 0;
-    box-shadow: 0 0 10px black;
+@media(max-width: 100vh){
+    main{
+        display: inline-block;
+        overflow-y: scroll;
+    }
+    .formside, .logoside{
+        width: 100vw;
+    }
+    .logoside{
+        height: 50vh;
+    }
+}
+@media(max-height: 700px){
+    .formside img{
+        margin: 0;
+        padding: 0;
+        width: 0;
+        height: 0;
+    }
+    .formside{
+        margin-top: 0;
+    }
+    h1{
+        margin-top: -10vh;
+    }
+
+    main{
+        display: inline-block;
+        overflow-y: scroll;
+    }
+    .formside, .logoside{
+        width: 100vw;
+    }
+    .logoside{
+        height: 50vh;
+    }
 }
