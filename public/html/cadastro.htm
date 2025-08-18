@@ -11,9 +11,9 @@
 </head>
 <body>
     <main>
-        <div class="formside">
+        <div class="formside" id="transform">
             <img src="..\imagens\pfp.png">
-            <h1>CRIAR CONTA</h1>
+            <h1 id="formtit">CRIAR CONTA</h1>
             <form action="" method="">
                 <div class="inputbox">
                     Seu Nome:<br>
@@ -25,12 +25,14 @@
                 </div>
                     <input type="submit" value="Cadastrar" class="botao">
             </form>
+            Já tem uma conta? <a onclick="slide()">Fazer Login</a>
         </div>
-        <div class="logoside">
+        <div class="logoside" id="translogo">
             <img src="..\imagens\logo.png">
-            <h1>SEJA BEM VINDO(A)</h1>
+            <h1 id="logotit">SEJA BEM VINDO(A)!</h1>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum consequuntur voluptates corrupti porro. Corporis quis doloremque tempore, id libero excepturi? Fugit, cum. Natus aliquam perspiciatis corrupti tempore maiores! Veritatis, neque.</p>
         </div>
+        <script src="../js/cadastro.js"></script>
     </main>
 </body>
 </html>

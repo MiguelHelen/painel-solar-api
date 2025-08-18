@@ -70,11 +70,14 @@ input:hover{
     height: 300px;
 }
 .logoside h1{
-    font-size: 50pt;
+    font-size: 40pt;
     margin-bottom: 5vh;
 }
 .logoside p{
     font-size: 20pt;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: justify;
 }
 @media(max-width: 100vh){
     main{
