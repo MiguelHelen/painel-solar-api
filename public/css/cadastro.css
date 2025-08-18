@@ -14,18 +14,26 @@ main{
     width: 50%;
     text-align: center;
     margin-top: 5vh;
+    transition: transform 0.75s ease-in-out;
 }
-.formside img{
+.formsider{
+    height: 100vh;
+    width: 50%;
+    text-align: center;
+    margin-top: 5vh;
+    transform: translateX(50vw);
+    transition: transform 0.75s ease-in-out;
+}
+.formside img, .formsider img{
     height: 175px;
 }
-.formside h1{
+.formside h1, .formsider h1{
     font-size: 32pt;
     text-decoration: underline;
     text-decoration-color: #0220FF;
     margin-bottom: 5vh;
 }
-.formside form{
-    
+.formside form, .formsider form{    
     font-family: 'Andika';
     font-size: 20pt;
     color: #373737;
@@ -40,10 +48,24 @@ input{
     margin-bottom: 2.5vh;
     background-color: #D9D9D9;
     border-width: 0;
+    padding-left: 2%;
 }
 input:hover{
     opacity: 80%;
+}
+a{
+    color: #0173B3;
+}
+a:hover{
     cursor: pointer;
+    text-decoration: underline;
+}
+.conf2{
+    font-size: 0;
+    width: 0;
+    height: 0;
+    padding: 0;
+    margin: 0;
 }
 .botao{
     background-color: #6C92BD;
@@ -57,6 +79,9 @@ input:hover{
     width: 80%;
     height: 60px;
 }
+.botao:hover{
+    cursor: pointer;
+}
 .logoside{
     height: 100vh;
     width: 50%;
@@ -65,42 +90,64 @@ input:hover{
     box-shadow: 0 0 10px black;
     color: white;
     font-family: 'andika';
+    transition: transform 0.75s ease-in-out;
 }
-.logoside img{
+.logosidel{
+    height: 100vh;
+    width: 50%;
+    background-image: linear-gradient(90deg, #00314D, #0173B3);
+    text-align: center;
+    box-shadow: 0 0 10px black;
+    color: white;
+    font-family: 'andika';
+    transform: translateX(-50vw);
+    transition: transform 0.75s ease-in-out;
+}
+.logoside img, .logosidel img{
     height: 300px;
 }
-.logoside h1{
+.logoside h1, .logosidel h1{
     font-size: 40pt;
     margin-bottom: 5vh;
 }
-.logoside p{
+.logoside p, .logosidel p{
     font-size: 20pt;
     padding-left: 20px;
     padding-right: 20px;
     text-align: justify;
+}
+.transresp1{
+    opacity: 1;
+    transition: opacity 0.375s ease-out;
 }
 @media(max-width: 100vh){
     main{
         display: inline-block;
         overflow-y: scroll;
     }
-    .formside, .logoside{
+    .formside, .logoside, .formsider, .logosidel{
         width: 100vw;
+        transform: translateX(0);
+    }
+    .transresp2{
+        opacity: 0;
+        transition: opacity 0.375s ease-out;
     }
 }
 @media(max-height: 700px){
-    .formside img{
+    .formside img, .formsider img{
         margin: 0;
         padding: 0;
         width: 0;
         height: 0;
     }
-    .formside{
+    .formside, .formsider{
         margin-top: 0;
         height: auto;
+        padding-bottom: 50px;
     }
-    .logoside img{
-        height: 100%;
+    .logoside img, .logosidel img{
+        width: 100%;
         width: auto;
     }
 
@@ -108,12 +155,17 @@ input:hover{
         display: inline-block;
         overflow-y: scroll;
     }
-    .formside, .logoside{
+    .formside, .logoside, .formsider, .logosidel{
         width: 100vw;
+        transform: translateX(0);
+    }
+    .transresp2{
+        opacity: 0;
+        transition: opacity 0.375s ease-out;
     }
 }
 @media(max-width: 1400px){
-    .logoside p{
+    .logoside p, .logosidel p{
         font-size: 12pt;
     }
 }
