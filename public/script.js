@@ -91,12 +91,12 @@ function montarGraficoMensal(dados) {
   if (graficoMensal) graficoMensal.destroy();
 
   const meses = [
-    "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto"
+    "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro"
   ];
 
-  const valoresFixos = [48000, 47000, 50000, 51000, 53000, 52000, 50000];
+  const valoresFixos = [48000, 47000, 50000, 51000, 53000, 52000, 50000, 47000];
 
-  const producaoAgosto = dados
+  const producaoSetembro = dados
     .filter(d => {
       const dataObj = parseDataStringToUTC(d.data); // Cria a data em UTC
       if (isNaN(dataObj.getTime())) return false;
@@ -106,7 +106,7 @@ function montarGraficoMensal(dados) {
     })
     .reduce((acc, d) => acc + d.energia, 0);
 
-  const dadosFinais = [...valoresFixos, producaoAgosto];
+  const dadosFinais = [...valoresFixos, producaoSetembro];
 
   graficoMensal = new Chart(ctx, {
     type: 'bar',
