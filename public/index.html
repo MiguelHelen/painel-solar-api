@@ -1,89 +1,108 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Simulação - Energia Solar Portuária</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <!DOCTYPE html>
+  <html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Simulação de Energia Solar - Porto</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
 
-<header>
-  <h1>Simulação de Energia Solar - Porto <span class="icone-solar" aria-label="Sol">☀️</span></h1>
-  <p>Monitoramento em tempo real da geração de energia solar nas áreas portuárias.</p>
-</header>
+  <header class="text-center p-4 bg-gradient">
+    <h1 class="titulo"><span class="icone">☀️</span> Simulação de Energia Solar - Porto</h1>
+    <p>Monitoramento da geração de energia solar nas áreas portuárias.</p>
+  </header>
 
-<section class="metricas">
-  <div class="card-metrica">
-    <h4>Última Radiação</h4>
-    <h2 id="radiacao">--</h2>
+  <div class="container mt-4">
+    <!-- Métricas -->
+    <section class="row justify-content-center g-4 mb-4">
+      <div class="col-md-3 card-metrica">
+        <h5>Última Radiação</h5>
+        <h2 id="radiacao">--</h2>
+      </div>
+      <div class="col-md-3 card-metrica">
+        <h5>Última Energia (W)</h5>
+        <h2 id="energia">--</h2>
+      </div>
+      <div class="col-md-4 card-metrica">
+        <h5>Produção do Dia</h5>
+        <h2 id="producaoDia">0 / 5000 W</h2>
+        <div class="progress mt-2">
+          <div id="barraProgresso" class="progress-bar bg-success"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mapa da Instalação -->
+    <section class="card shadow-sm p-4 mb-4">
+      <h4 class="mb-3">Mapa da Instalação Solar Portuária</h4>
+      <img src="mapa-instalacao.png" alt="Mapa da Instalação" class="img-fluid rounded" />
+    </section>
+
+    <!-- Histórico de Energia -->
+    <section class="card shadow-sm p-4 mb-4">
+      <h4 class="mb-3">Gráfico de Energia (Últimas Leituras)</h4>
+      <canvas id="graficoEnergia"></canvas>
+    </section>
+
+    <!-- Produção Mensal -->
+    <section class="card shadow-sm p-4 mb-4">
+      <h4 class="mb-3">Estimativa de Produção Mensal</h4>
+      <canvas id="graficoMensal"></canvas>
+    </section>
+
+    <section class="grafico">
+    <h4>Gráfico de Energia Diária</h4>
+    <canvas id="graficoPorDia"></canvas>
+  </section>
+
+    <!-- Relatório Completo -->
+    <section class="card shadow-sm p-4 mb-4">
+      <h4 class="mb-3">Relatório Detalhado</h4>
+      <div class="table-responsive">
+        <table class="table table-striped text-center">
+          <thead>
+            <tr>
+              <th>Data/Hora</th>
+              <th>Radiação</th>
+              <th>Energia (W)</th>
+            </tr>
+          </thead>
+          <tbody id="tabelaDados"></tbody>
+        </table>
+      </div>
+    </section>
   </div>
-  <div class="card-metrica">
-    <h4>Última Energia (W)</h4>
-    <h2 id="energia">--</h2>
-  </div>
-  <div class="card-metrica">
-    <h4>Produção do Dia</h4>
-    <h2 id="producaoDia">0 / 5000 W</h2>
-    <div class="progress">
-      <div id="barraProgresso" class="progress-bar bg-success" role="progressbar"></div>
+
+  <!-- Modal de detalhes do relatório -->
+  <div id="modalRelatorio" class="modal">
+    <div class="modal-conteudo">
+      <button class="modal-fechar" id="fecharModal">&times;</button>
+      <div class="modal-corpo">
+        <div class="modal-info">
+          <h5>Detalhes da Leitura</h5>
+          <p><strong>Data/Hora:</strong> <span id="modalDataHora"></span></p>
+          <p><strong>Radiação:</strong> <span id="modalRadiacao"></span></p>
+          <p><strong>Energia (W):</strong> <span id="modalEnergia"></span></p>
+          <p><strong>Setor:</strong> <span id="modalSetor"></span></p>
+          <p><strong>Parte do Mapa:</strong> <span id="modalParteMapa"></span></p>
+        </div>
+        <div class="modal-imagem">
+          <img id="modalImagem" src="" alt="Foto do local" />
+        </div>
+      </div>
     </div>
   </div>
-</section>
 
-<section class="conteudo-extra">
-  <h3>Energia Solar no Porto</h3>
-  <p>A implementação de sistemas fotovoltaicos nos portos contribui para reduzir custos operacionais e as emissões de carbono. Este projeto simula, em tempo real, a produção energética de painéis solares instalados nas áreas de armazenagem e operações logísticas portuárias.</p>
 
-  <h4>Vantagens da Energia Solar no Setor Portuário</h4>
-  <ul>
-    <li>Redução de custos com eletricidade</li>
-    <li>Diminuição da pegada de carbono</li>
-    <li>Energia limpa e renovável</li>
-    <li>Maior independência energética</li>
-  </ul>
+<button id="baixarTxt">📥 Baixar Histórico (.txt)</button>
 
-  <h4>Curiosidades</h4>
-  <p>Sabia que o Porto de Santos movimenta mais de 100 milhões de toneladas de carga por ano? Imagine o impacto positivo ao integrar soluções solares em operações dessa magnitude.</p>
-</section>
+  <footer class="text-center py-3 mt-4 text-muted small">
+    Projeto acadêmico de simulação de painéis solares com IoT em áreas portuárias.
+  </footer>
 
-<section>
-  <h4>Mapa da Instalação</h4>
-  <iframe class="mapa" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.4579307814467!2d-46.63611248502208!3d-23.58823706814444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c79375d23b%3A0x7e4ebd1b1d6468af!2sPorto%20de%20Santos!5e0!3m2!1spt-BR!2sbr!4v1688064378629!5m2!1spt-BR!2sbr" allowfullscreen loading="lazy"></iframe>
-</section>
-
-<section class="grafico">
-  <h4>Gráfico de Energia (Últimas Leituras)</h4>
-  <canvas id="graficoEnergia"></canvas>
-</section>
-
-<section class="relatorio">
-  <h4>Relatório Completo</h4>
-  <div class="table-responsive">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Data/Hora</th>
-          <th>Radiação</th>
-          <th>Energia (W)</th>
-        </tr>
-      </thead>
-      <tbody id="tabelaDados"></tbody>
-    </table>
-  </div>
-</section>
-
-<section class="grafico">
-  <h4>Comparativo de Produção Mensal</h4>
-  <canvas id="graficoMensal"></canvas>
-</section>
-
-<footer>
-  <p>Projeto acadêmico de simulação de painéis solares para planejamento energético portuário com IoT.</p>
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="script.js"></script>
-</body>
-</html>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+  </body>
+  </html>
