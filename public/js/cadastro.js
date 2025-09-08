@@ -56,3 +56,21 @@ function slide(){
         }
     }, 375);
 }
+function mostrarsenha(){
+    const mostsenha = document.getElementById("most1");
+    if(mostsenha.type == "password"){
+        mostsenha.type = "text";
+    }
+    else{
+        mostsenha.type = "password";
+    }
+}
+function mostrarconfirm(){
+    const mostconfirm = document.getElementById("most2");
+    if(mostconfirm.type == "password"){
+        mostconfirm.type = "text";
+    }
+    else{
+        mostconfirm.type = "password";
+    }
+}

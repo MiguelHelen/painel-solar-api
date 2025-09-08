@@ -17,11 +17,11 @@
             <form action="" method="">
                 <div class="inputbox">
                     Seu Nome:<br>
-                    <input type="text" name="nome"><br>
+                    <input type="text" name="nome" required><br>
                     Senha:<br>
-                    <input type="password" name="senha"><br>
+                    <input type="password" name="senha" class="senha" id="most1" required><input type="button" class="mostrar" value="👁" onclick="mostrarsenha()"><br>
                     <div class="conf" id ="conf">Confirmar Senha:<br>
-                    <input type="password" name="confirmar"></div>
+                    <input type="password" name="confirmar" class="senha" id="most2"><input type="button" class="mostrar" value="👁" onclick="mostrarconfirm()"></div>
                 </div>
                     <input type="submit" value="Cadastrar" class="botao" id="botaologincadastrar">
             </form>
@@ -30,7 +30,7 @@
         <div class="logoside" id="translogo">
             <img src="..\imagens\logo.png">
             <h1 id="logotit">SEJA BEM VINDO(A)!</h1>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum consequuntur voluptates corrupti porro. Corporis quis doloremque tempore, id libero excepturi? Fugit, cum. Natus aliquam perspiciatis corrupti tempore maiores! Veritatis, neque.</p>
+            <p class="logotxt">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum consequuntur voluptates corrupti porro. Corporis quis doloremque tempore, id libero excepturi? Fugit, cum. Natus aliquam perspiciatis corrupti tempore maiores! Veritatis, neque.</p>
         </div>    
     </main>
     <script src="../js/cadastro.js"></script>
