@@ -54,6 +54,13 @@ function slide(){
         }else{
             element5.classList = "conf";
         }
+
+        const element6 = document.getElementById("conf3")
+        if(element6.classList == "conf"){
+            element6.classList = "conf2";
+        }else{
+            element6.classList = "conf";
+        }
     }, 375);
 }
 function mostrarsenha(){

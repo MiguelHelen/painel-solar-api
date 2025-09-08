@@ -149,7 +149,7 @@ a:hover{
         transition: opacity 0.375s ease-out;
     }
 }
-@media(max-height: 700px){
+@media(max-height: 890px){
     .formside img, .formsider img{
         margin: 0;
         padding: 0;
