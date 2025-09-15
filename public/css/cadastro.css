@@ -25,7 +25,7 @@ main{
     transition: transform 0.75s ease-in-out;
 }
 .formside img, .formsider img{
-    height: 175px;
+    height: 120px;
 }
 .formside h1, .formsider h1{
     font-size: 32pt;
@@ -53,18 +53,17 @@ input{
 input:hover{
     opacity: 80%;
 }
-.senha{
-    width: 82.5%;
-}
 .mostrar{
     width: 5%;
     height: 40px;
     border-width: 0;
-    background-color: #D9D9D9;
+    background-color: white;
     padding: 10px;
+    font-size: 15pt;
 }
 .mostrar:hover{
     opacity: 80%;
+    cursor: pointer;
 }
 a{
     color: #0173B3;

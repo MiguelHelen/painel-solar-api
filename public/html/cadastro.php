@@ -14,21 +14,38 @@
         <div class="formside" id="transform">
             <img src="..\imagens\pfp.png">
             <h1 id="formtit">CRIAR CONTA</h1>
-            <form action="" method="">
+            <form action="" method="POST">
                 <div class="inputbox">
                     Seu Nome:<br>
-                    <input type="text" name="nome" required><br>
+                    <input type="text" name="txtnome" required><br>
                     <div class="conf" id ="conf">Email:<br>
-                    <input type="text" name="email" required><br>
+                    <input type="text" name="txtemail" required><br>
                     </div>
                     Senha:<br>
-                    <input type="password" name="senha" class="senha" id="most1" required><input type="button" class="mostrar" value="👁" onclick="mostrarsenha()"><br>
+                    <input type="password" name="txtsenha" class="senha" id="most1" required><input type="button" class="mostrar" value="👁" onclick="mostrarsenha()"><br>
                     <div class="conf" id ="conf3">Confirmar Senha:<br>
-                    <input type="password" name="confirmar" class="senha" id="most2"><input type="button" class="mostrar" value="👁" onclick="mostrarconfirm()"></div>
+                    <input type="password" name="txtconfirmar" class="senha" id="most2"><input type="button" class="mostrar" value="👁" onclick="mostrarconfirm()"></div>
                 </div>
-                    <input type="submit" value="Cadastrar" class="botao" id="botaologincadastrar">
+                    <input type="submit" value="Cadastrar" class="botao" id="botaologincadastrar" name="btncadastrar">
             </form>
             <span id="linklogin">Já fez cadastro? </span><a onclick='slide()' id="linklogin2">Fazer Login</a>
+            <?php
+                extract($_POST, EXTR_OVERWRITE);
+                if(isset($btncadastrar))
+                {
+                    if($txtsenha == $txtconfirmar){
+                        include_once '../php/cadastrologin.php';
+                        $pro=new Cadastro();
+                        $pro->setNome($txtnome);
+                        $pro->setEmail($txtemail);
+                        $pro->setSenha($txtsenha);
+                        echo "<p>" . $pro->salvar() . "</p>";
+                    }
+                    else{
+                        echo "<p>Erro: Senhas inseridas não são iguais</p>";
+                    }
+                }
+            ?>
         </div>
         <div class="logoside" id="translogo">
             <img src="..\imagens\logo.png">
