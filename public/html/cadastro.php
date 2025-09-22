@@ -16,16 +16,17 @@
             <h1 id="formtit">CRIAR CONTA</h1>
             <form action="" method="POST">
                 <div class="inputbox">
-                    Seu Nome:<br>
-                    <input type="text" name="txtnome" required><br>
-                    <div class="conf" id ="conf">Email:<br>
-                    <input type="text" name="txtemail" required><br>
+                    <div class="conf" id ="conf">
+                        Seu Nome:<br>                    
+                        <input type="text" name="txtnome" id="nome1" required><br>
                     </div>
+                    Email:<br>
+                    <input type="text" name="txtemail" required><br>                   
                     Senha:<br>
                     <input type="password" name="txtsenha" class="senha" id="most1" required><input type="button" class="mostrar" value="👁" onclick="mostrarsenha()"><br>
                     <div class="conf" id ="conf3">Confirmar Senha:<br>
-                    <input type="password" name="txtconfirmar" class="senha" id="most2"><input type="button" class="mostrar" value="👁" onclick="mostrarconfirm()"></div>
-                </div>
+                        <input type="password" name="txtconfirmar" class="senha" id="most2"><input type="button" class="mostrar" value="👁" onclick="mostrarconfirm()"></div>
+                    </div>
                     <input type="submit" value="Cadastrar" class="botao" id="botaologincadastrar" name="btncadastrar">
             </form>
             <span id="linklogin">Já fez cadastro? </span><a onclick='slide()' id="linklogin2">Fazer Login</a>
@@ -45,12 +46,15 @@
                         echo "<p>Erro: Senhas inseridas não são iguais</p>";
                     }
                 }
+                if(isset($btnlogar)){
+                    echo "<p>Teste</p>";
+                }
             ?>
         </div>
         <div class="logoside" id="translogo">
             <img src="..\imagens\logo.png">
             <h1 id="logotit">SEJA BEM VINDO(A)!</h1>
-            <p class="logotxt">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum consequuntur voluptates corrupti porro. Corporis quis doloremque tempore, id libero excepturi? Fugit, cum. Natus aliquam perspiciatis corrupti tempore maiores! Veritatis, neque.</p>
+            <p class="logotxt">Faça login para acessar o seu painel solar. Se você não tem uma conta, pode fazer uma agora de graça!</p>
         </div>    
     </main>
     <script src="../js/cadastro.js"></script>

@@ -46,16 +46,51 @@
             try
             {
                 $this-> conn = new Conectar();
-                $sql = $this->conn->prepare("insert into usuarios values (null, ?, ?, ?, null, ?)");
-                @$sql-> bindParam(1, $this->getNome(), PDO::PARAM_STR);
-                @$sql-> bindParam(2, $this->getEmail(), PDO::PARAM_STR);
-                @$sql-> bindParam(3, $this->getSenha(), PDO::PARAM_STR);
-                @$sql-> bindParam(4, date("Y-m-d h:i:sa"), PDO::PARAM_STR);
-                if($sql->execute() == 1)
-                {
-                    return "Cadastro feito com sucesso! <a onclick='slide()' id='linklogin2'>Faça Login</a> para continuar";
-                }
-                $this->conn = null;
+                $sql = $this->conn->prepare("select * from usuarios where email like ?"); 
+                @$sql-> bindParam(1, $this->getEmail(), PDO::PARAM_STR);
+                $sql->execute();
+                if ($sql->fetchAll() != null) {
+                    return "Email já foi cadastrado. Tente outro email";
+                } else {                   
+                    $sql = $this->conn->prepare("insert into usuarios values (null, ?, ?, ?, null, ?)");
+                    @$sql-> bindParam(1, $this->getNome(), PDO::PARAM_STR);
+                    @$sql-> bindParam(2, $this->getEmail(), PDO::PARAM_STR);
+                    @$sql-> bindParam(3, $this->getSenha(), PDO::PARAM_STR);
+                    @$sql-> bindParam(4, date("Y-m-d h:i:sa"), PDO::PARAM_STR);
+                    if($sql->execute() == 1)
+                    {
+                        return "Cadastro feito com sucesso! <a onclick='slide()' id='linklogin2'>Faça Login</a> para continuar";
+                    }
+                    $this->conn = null;
+                }               
+            }
+            catch(PDOException $exc)
+            {
+                echo "Erro ao salvar o registro. " . $exc->getMessage();
+            }
+        }
+        function login()
+        {
+            try
+            {
+                $this-> conn = new Conectar();
+                $sql = $this->conn->prepare("select * from usuarios where email like ?"); 
+                @$sql-> bindParam(1, $this->getEmail(), PDO::PARAM_STR);
+                $sql->execute();
+                if ($sql->fetchAll() != null) {
+                    return "Email já foi cadastrado. Tente outro email";
+                } else {                   
+                    $sql = $this->conn->prepare("insert into usuarios values (null, ?, ?, ?, null, ?)");
+                    @$sql-> bindParam(1, $this->getNome(), PDO::PARAM_STR);
+                    @$sql-> bindParam(2, $this->getEmail(), PDO::PARAM_STR);
+                    @$sql-> bindParam(3, $this->getSenha(), PDO::PARAM_STR);
+                    @$sql-> bindParam(4, date("Y-m-d h:i:sa"), PDO::PARAM_STR);
+                    if($sql->execute() == 1)
+                    {
+                        return "Cadastro feito com sucesso! <a onclick='slide()' id='linklogin2'>Faça Login</a> para continuar";
+                    }
+                    $this->conn = null;
+                }               
             }
             catch(PDOException $exc)
             {

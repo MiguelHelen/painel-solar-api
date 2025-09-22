@@ -30,8 +30,10 @@ function slide(){
         const element2 = document.getElementById("botaologincadastrar")
         if(element2.value == "Cadastrar"){
             element2.value = "Entrar";
+            element2.name = "btnlogar";
         }else{
             element2.value = "Cadastrar";
+            element2.name = "btncadastrar";
         }
 
         const element3 = document.getElementById("linklogin")
@@ -60,6 +62,16 @@ function slide(){
             element6.classList = "conf2";
         }else{
             element6.classList = "conf";
+        }
+
+        const nomein = document.getElementById("nome1");
+        const mostconfirm = document.getElementById("most2");
+        if(nomein.hasAttribute("required")){
+            nomein.removeAttribute("required");
+            mostconfirm.removeAttribute("required");
+        }else{
+            nomein.setAttribute("required");
+            mostconfirm.setAttribute("required");
         }
     }, 375);
 }
