@@ -76,7 +76,7 @@
             }
             catch(PDOException $exc)
             {
-                echo "Erro ao salvar o registro. " . $exc->getMessage();
+                echo "Erro ao fazer cadastro. " . $exc->getMessage();
             }
         }
         function login()
@@ -89,15 +89,16 @@
                 @$sql-> bindParam(2, $this->getSenha(), PDO::PARAM_STR);
                 $sql->execute();
                 if ($sql->fetchAll() != null) {
-                    return "Login feito com sucesso";
+                    $_SESSION['user']=$this->getEmail();
+                    return true;
                 } else {                   
-                    return "Erro: email e/ou senha incorretos";
+                    return false;
                     $this->conn = null;
                 }               
             }
             catch(PDOException $exc)
             {
-                echo "Erro ao salvar o registro. " . $exc->getMessage();
+                echo "Erro ao fazer login. " . $exc->getMessage();
             }
         }
     }

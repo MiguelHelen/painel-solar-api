@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -21,13 +22,20 @@
     </div>
    
     <nav class="navbar">
-        <li><a href="principal.html">Principal</a></li>
-        <li><a href="historia.html">História</a></li>
+        <li><a href="principal.php">Principal</a></li>
+        <li><a href="#">História</a></li>
         <li><a href="#">Infraestrutura</a></li>
         <li><a href="#">Tipo de Energia</a></li>
-      <button class="btn-login">
-        <i class="fas fa-user"></i> Entrar
-      </button>
+        <form name="loginlogout" method="POST">
+          <?php
+            if(!isset($_SESSION['user'])){
+              echo "<input type='submit' class='btn-login' name='login' value='Entrar'>";
+            }
+            else{
+              echo "<input type='submit' class='btn-login' name='logout' value='Sair'>";
+            }
+          ?>
+        </form>
     </nav>
     <div class="linha-navbar"></div>
   </header>
@@ -56,7 +64,7 @@
     <div class="coluna">
       <h4>Menu</h4>
       <ul>
-        <li><a href="#">Principal</a></li>
+        <li><a href="principal.php">Principal</a></li>
         <li><a href="#">História</a></li>
         <li><a href="#">Infraestrutura</a></li>
         <li><a href="#">Tipo de Energia</a></li>
@@ -82,5 +90,15 @@
     </div>
     </div>
   </footer>
+  <?php
+    extract($_POST, EXTR_OVERWRITE);
+    if(isset($login)){
+      header('location:cadastro.php');
+    }
+    if(isset($logout)){
+      session_destroy();
+      header('location:cadastro.php');
+    }
+  ?>
 </body>
 </html>

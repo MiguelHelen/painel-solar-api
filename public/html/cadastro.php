@@ -1,3 +1,10 @@
+<?php
+    session_start();
+
+if(isset($_SESSION['user'])){
+    header("Location:principal.php"); 
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,11 +17,12 @@
     <link href='https://fonts.googleapis.com/css?family=Aldrich' rel='stylesheet'>
 </head>
 <body>
+    
     <main class="transresp1" id="transresp">
         <div class="formside" id="transform">
             <img src="..\imagens\pfp.png">
             <h1 id="formtit">CRIAR CONTA</h1>
-            <form action="" method="POST">
+            <form method="POST">
                 <div class="inputbox">
                     <div class="conf" id ="conf">
                         Seu Nome:<br>                    
@@ -48,7 +56,16 @@
                     }
                 }
                 if(isset($btnlogar)){
-                    echo "<p>Teste</p>";
+                    include_once '../php/cadastrologin.php';
+                    $pro=new Cadastro();
+                    $pro->setEmail($txtemail);
+                    $pro->setSenha($txtsenha);
+                    if($pro->login() == true){
+                        header('location:principal.php');
+                    }
+                    else{
+                        echo "<p>Erro: email e/ou senha incorretos</p>";
+                    }
                 }
             ?>
         </div>
