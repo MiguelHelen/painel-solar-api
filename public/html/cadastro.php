@@ -47,7 +47,8 @@ if(isset($_SESSION['user'])){
                         $pro=new Cadastro();
                         $pro->setNome($txtnome);
                         $pro->setEmail($txtemail);
-                        $pro->setSenha($txtsenha);
+                        $senha = password_hash($txtsenha, PASSWORD_DEFAULT);
+                        $pro->setSenha($senha);
                         $pro->setAdmin(false);
                         echo "<p>" . $pro->salvar() . "</p>";
                     }
