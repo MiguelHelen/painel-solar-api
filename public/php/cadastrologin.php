@@ -6,6 +6,7 @@
         private $id;
         private $nome;
         private $senha;
+        private $admin;
         private $conn;
         
 
@@ -41,6 +42,14 @@
             $this->senha = $sen;
         }
 
+        public function getAdmin() {
+            return $this->admin;
+        }
+
+        public function setAdmin($adm) {
+            $this->admin = $adm;
+        }
+
         function salvar()
         {
             try
@@ -52,11 +61,12 @@
                 if ($sql->fetchAll() != null) {
                     return "Email já foi cadastrado. Tente outro email";
                 } else {                   
-                    $sql = $this->conn->prepare("insert into usuarios values (null, ?, ?, ?, null, ?)");
+                    $sql = $this->conn->prepare("insert into usuarios values (null, ?, ?, ?, ?, ?)");
                     @$sql-> bindParam(1, $this->getNome(), PDO::PARAM_STR);
                     @$sql-> bindParam(2, $this->getEmail(), PDO::PARAM_STR);
                     @$sql-> bindParam(3, $this->getSenha(), PDO::PARAM_STR);
-                    @$sql-> bindParam(4, date("Y-m-d h:i:sa"), PDO::PARAM_STR);
+                    @$sql-> bindParam(4, $this->getAdmin(), PDO::PARAM_STR);
+                    @$sql-> bindParam(5, date("Y-m-d h:i:sa"), PDO::PARAM_STR);
                     if($sql->execute() == 1)
                     {
                         return "Cadastro feito com sucesso! <a onclick='slide()' id='linklogin2'>Faça Login</a> para continuar";
@@ -74,21 +84,14 @@
             try
             {
                 $this-> conn = new Conectar();
-                $sql = $this->conn->prepare("select * from usuarios where email like ?"); 
+                $sql = $this->conn->prepare("select * from usuarios where email like ? && senha like ?"); 
                 @$sql-> bindParam(1, $this->getEmail(), PDO::PARAM_STR);
+                @$sql-> bindParam(2, $this->getSenha(), PDO::PARAM_STR);
                 $sql->execute();
                 if ($sql->fetchAll() != null) {
-                    return "Email já foi cadastrado. Tente outro email";
+                    return "Login feito com sucesso";
                 } else {                   
-                    $sql = $this->conn->prepare("insert into usuarios values (null, ?, ?, ?, null, ?)");
-                    @$sql-> bindParam(1, $this->getNome(), PDO::PARAM_STR);
-                    @$sql-> bindParam(2, $this->getEmail(), PDO::PARAM_STR);
-                    @$sql-> bindParam(3, $this->getSenha(), PDO::PARAM_STR);
-                    @$sql-> bindParam(4, date("Y-m-d h:i:sa"), PDO::PARAM_STR);
-                    if($sql->execute() == 1)
-                    {
-                        return "Cadastro feito com sucesso! <a onclick='slide()' id='linklogin2'>Faça Login</a> para continuar";
-                    }
+                    return "Erro: email e/ou senha incorretos";
                     $this->conn = null;
                 }               
             }

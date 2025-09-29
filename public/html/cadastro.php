@@ -40,6 +40,7 @@
                         $pro->setNome($txtnome);
                         $pro->setEmail($txtemail);
                         $pro->setSenha($txtsenha);
+                        $pro->setAdmin(false);
                         echo "<p>" . $pro->salvar() . "</p>";
                     }
                     else{
