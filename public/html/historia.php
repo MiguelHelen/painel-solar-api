@@ -1,32 +1,39 @@
-<?php session_start() ?>
+<?php
+  session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>História - Porto Solar</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="../css/principal.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Porto Solar - História</title>
+  <link rel="stylesheet" href="../css/historia.css" />
+   <link rel="icon" href="../imagens/PortSol-removebg-preview (1) (1).png" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
-   <header>
+  <header>
     <div class="logo">
   
       <img src="../imagens/PortSol-removebg-preview (1) (1).png" alt="Logo Porto Solar" />
     </div>
     <div class="titulo">
-      <h1>Historia</h1>
+      <h1>História</h1>
       <br>
-      <p>Saiba mais sobre a história e as informações do Porto de Santos.</p>
+      <p>Saiba mais sobre a história e as informações <br> do Porto de Santos.</p>
        <div class="linha-titulo"></div>
     </div>
    
     <nav class="navbar">
-        <li><a href="principal.php">Principal</a></li>
+      <ul>
+        <li><a href="#">Principal</a></li>
         <li><a href="#">História</a></li>
         <li><a href="#">Infraestrutura</a></li>
         <li><a href="#">Tipo de Energia</a></li>
-        <form name="loginlogout" method="POST">
+      </ul>
+
+       <form name="loginlogout" method="POST">
           <?php
             if(!isset($_SESSION['user'])){
               echo "<input type='submit' class='btn-login' name='login' value='Entrar'>";
@@ -37,34 +44,152 @@
           ?>
         </form>
     </nav>
+
     <div class="linha-navbar"></div>
   </header>
 
-  <div class="linha-informativa">
-    <span>Historia do Porto de Santos</span>
-  </div>
+    <section class="faixa-infra">
+     <h2>História do Porto de Santos</h2>
+    </section>
 
-  <section class="conteudo-extra">
-    <h3 style="color:#2980B9;text-align:center;">Sobre o Projeto</h3>
-    <div class="card-metrica" style="max-width:700px;margin:auto;">
-      <h4 style="color:#2980B9;text-align:center;">Porto Solar</h4>
-      <p style="text-align:justify;">
-        <span style="color:#2980B9;font-weight:bold;">1892 – Fundação oficial</span><br>
-        O porto foi oficialmente inaugurado com estrutura moderna para a época, iniciando sua trajetória como principal escoadouro do café brasileiro.<br><br>
-        <span style="color:#2980B9;font-weight:bold;">1930 – Expansão e modernização</span><br>
-        Grandes obras ampliaram os cais e melhoraram a logística portuária com a introdução de guindastes e armazéns.<br><br>
-        <span style="color:#2980B9;font-weight:bold;">1970 – Integração ferroviária e novos terminais</span><br>
-        Conexões ferroviárias fortalecem o escoamento de cargas do interior do Brasil até o porto.<br><br>
-        <span style="color:#2980B9;font-weight:bold;">Atualidade</span><br>
-        Hoje, o Porto de Santos é o maior da América Latina, movimentando bilhões em exportações e importações e servindo como um dos pilares logísticos do país.
-      </p>
+    <div class="text-1">
+    <p>Podemos dizer que o Porto de Santos teve um certo início de suas atividades no século XVI. 
+    Continuou operando com equipamentos pouco desenvolvidos até o final do século XIX. Após receber 
+    determinados investimentos, a Companhia Docas de Santos (CDS) viabilizou sua construção.</p>
     </div>
-  </section>
- <footer>
+    <br/>
+
+
+
+    <div class="container">
+      <div class="lado-Esq">
+      <p class="dat1">Sua inauguração, Como estrutura organizada, foi no ano de:</p>
+      <p class="dat2">02 de fevereiro de 1892</p>
+      </div>
+
+      <div class="lado-Dir">
+       <figure class="img-box">
+          <img src="../imagens/PinturaPorto.png" alt="Pintura do Porto de Santos" />
+          <figcaption>Pintura representando o Porto de Santos no século XIX.</figcaption>
+        </figure>
+      </div>
+      </div>
+<br/>
+<br/>
+<br/>
+    <section class="faixa-infra2">
+      <br/>
+      <div class="text-2">
+      <p>Dessa forma, estabeleceu-se como um marco para o país, sendo o primeiro Porto Organizado 
+      brasileiro. Ao longo das décadas, alcançou uma posição de destaque na economia nacional.</p>
+      </div>
+
+      <br/>
+      <br/>
+
+    
+      <div class="container-2">
+        <h2>Os principais fundadores do Porto de Santos, enquanto um porto organizado, foram: </h2>
+
+        <figure class="img-box2">
+          <p>Cândido Gaffrée</p>
+          <img src="../imagens/Img_CândidoGaffrée.png" alt="Imagem de Cândido Gaffrée" />
+        </figure>
+
+        <figure class="img-box2">
+          <p>Eduardo Guinle</p>
+          <img src="../imagens/Img_EduardoGuinle.png" alt="Imagem de Eduardo Guinle" />
+        </figure>
+
+        <p class="text-3">Foram esses dois empresários que em 1888, receberam o direito 
+          à construção e exploração do porto. Além de José Pinto de Oliveira, João Gomes 
+          Ribeiro de Avellar, Alfredo Camilo Valdetaro, Benedicto Antônio da Silva e a firma Ribeiro, 
+          Barros & Braga. </p>
+      </div>
+      <br>
+      <br>
+      <br/>
+    </section>
+
+
+
+      <br/>
+
+      <div class="container-3">
+      <h2>Impactos Ambientais</h2>
+
+      <div class="linha-conteudo">
+      <div class="linha-emparelhada"></div>
+
+      <div class="conteudo">
+
+        <h3>1892 – Fundação oficial:</h3>
+        <p>
+        O porto foi oficialmente inaugurado com estrutura moderna para a época, iniciando sua trajetória como principal escoadouro do café brasileiro.
+        </p>
+       
+
+        <h3>1930 – Expansão e modernização:</h3>
+        <p>
+          Grandes obras ampliaram os cais e melhoraram a logística portuária com a introdução de guindastes e armazéns.
+        </p>
+      
+
+        <h3>1970 – Integração ferroviária e novos terminais:</h3>
+        <p>
+          Conexões ferroviárias fortalecem o escoamento de cargas do interior do Brasil até o porto.
+        </p>
+       
+
+        <h3>Atualidade:</h3>
+        <p>
+         Hoje, o Porto de Santos é o maior da América Latina, movimentando bilhões em exportações e importações 
+         e servindo como um dos pilares logísticos do país.
+        </p>
+
+        <figure class="img-box3">
+          <img src="../imagens/image 2.png" alt="Área do Porto" />
+          <figcaption class="Fing">Panorama da ampla área do Porto.</figcaption>
+        </figure>
+
+        <figure class="img-box3">
+          <img src="../imagens/image 3.png" alt="Embarcação com Guindastes" />
+          <figcaption class="Fing">Embarcação portuária levando guindastes.</figcaption>
+        </figure>
+        </div>
+        </div>
+        </div>
+
+        <br/>
+       <br/>
+
+        <div class="container-4">
+
+      <div class="quad">
+        <h3>Porto Antigo</h3>
+        <p>De ponto colonial a escoadouro do café, o início da história.</p>
+      </div>
+
+      <div class="quad">
+        <h3>Industrialização</h3>
+        <p>Modernização da infraestrutura ao longo do século XX.</p>
+      </div>
+
+      <div class="quad">
+        <h3>Conexão Global</h3>
+        <p>Integração logística com o comércio mundial.</p>
+      </div>
+
+     
+    </div>
+ <br/>
+       <br/>
+
+        <footer>
     <div class="coluna">
       <h4>Menu</h4>
       <ul>
-        <li><a href="principal.php">Principal</a></li>
+        <li><a href="#">Principal</a></li>
         <li><a href="#">História</a></li>
         <li><a href="#">Infraestrutura</a></li>
         <li><a href="#">Tipo de Energia</a></li>
@@ -90,15 +215,7 @@
     </div>
     </div>
   </footer>
-  <?php
-    extract($_POST, EXTR_OVERWRITE);
-    if(isset($login)){
-      header('location:cadastro.php');
-    }
-    if(isset($logout)){
-      session_destroy();
-      header('location:cadastro.php');
-    }
-  ?>
+
+  
 </body>
 </html>
