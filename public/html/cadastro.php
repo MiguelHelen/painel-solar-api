@@ -75,7 +75,10 @@ if(isset($_SESSION['user'])){
             <h1 id="logotit">SEJA BEM VINDO(A)!</h1>
             <p class="logotxt">Links:</p>
             <ul>
-                
+                <li><a href="principal.php">Principal</a></li>
+                <li><a href="historia.php">Historia</a></li>
+                <li><a href="infraestrutura.php">Infraestrutura</a></li>
+                <li><a href="Tipos_De_Energia.php">Tipos De Energia</a></li>
             </ul>
         </div>    
     </main>

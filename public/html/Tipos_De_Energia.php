@@ -1,3 +1,4 @@
+
 <?php
   session_start();
 ?>
@@ -46,6 +47,16 @@
             }
             else{
               echo "<input type='submit' class='btn-login' name='logout' value='Sair'>";
+            }
+          ?>
+          <?php
+            extract($_POST, EXTR_OVERWRITE);
+            if(isset($login)){
+              header('location:cadastro.php');
+            }
+            if(isset($logout)){
+              session_destroy();
+              header('location:cadastro.php');
             }
           ?>
         </form>
@@ -212,15 +223,6 @@
     </div>
     </div>
   </footer>
-  <?php
-    extract($_POST, EXTR_OVERWRITE);
-    if(isset($login)){
-      header('location:cadastro.php');
-    }
-    if(isset($logout)){
-      session_destroy();
-      header('location:cadastro.php');
-    }
-  ?>
+  
 </body>
 </html>
