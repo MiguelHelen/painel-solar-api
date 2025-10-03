@@ -18,6 +18,13 @@
   
       <img src="../imagens/PortSol-removebg-preview (1) (1).png" alt="Logo Porto Solar" />
     </div>
+    <div class="sessao">  
+      <?php 
+        if(isset($_SESSION['user'])){
+          echo "<p>Bem vindo(a), ". $_SESSION['nome'] ."</p>"; 
+        }
+      ?>
+    </div>
     <div class="titulo">
       <h1>Tipos de Energia</h1>
       <br>
@@ -27,9 +34,9 @@
    
     <nav class="navbar">
       <ul>
-        <li><a href="#">Principal</a></li>
-        <li><a href="#">História</a></li>
-        <li><a href="#">Infraestrutura</a></li>
+        <li><a href="principal.php">Principal</a></li>
+        <li><a href="historia.php">História</a></li>
+        <li><a href="infraestrutura.php">Infraestrutura</a></li>
         <li><a href="#">Tipo de Energia</a></li>
       </ul>
         <form name="loginlogout" method="POST">
@@ -179,9 +186,9 @@
     <div class="coluna">
       <h4>Menu</h4>
       <ul>
-        <li><a href="#">Principal</a></li>
-        <li><a href="#">História</a></li>
-        <li><a href="#">Infraestrutura</a></li>
+        <li><a href="principal.php">Principal</a></li>
+        <li><a href="historia.php">História</a></li>
+        <li><a href="infraestrutura.php">Infraestrutura</a></li>
         <li><a href="#">Tipo de Energia</a></li>
       </ul>
     </div>
@@ -205,6 +212,15 @@
     </div>
     </div>
   </footer>
-
+  <?php
+    extract($_POST, EXTR_OVERWRITE);
+    if(isset($login)){
+      header('location:cadastro.php');
+    }
+    if(isset($logout)){
+      session_destroy();
+      header('location:cadastro.php');
+    }
+  ?>
 </body>
 </html>

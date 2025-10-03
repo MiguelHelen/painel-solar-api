@@ -52,6 +52,10 @@ header {
   width: 26vh;
   margin: 0.2rem 0; 
 }
+.sessao p{
+  font-weight: bold;
+  font-size: 2rem;
+}
 
 .titulo {
   text-align: center;

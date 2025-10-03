@@ -2,7 +2,7 @@
     session_start();
 
 if(isset($_SESSION['user'])){
-    header("Location:principal.php"); 
+    header("location:principal.php"); 
 }
 ?>
 <!DOCTYPE html>
@@ -73,7 +73,10 @@ if(isset($_SESSION['user'])){
         <div class="logoside" id="translogo">
             <img src="..\imagens\logo.png">
             <h1 id="logotit">SEJA BEM VINDO(A)!</h1>
-            <p class="logotxt">Faça login para acessar o seu painel solar. Se você não tem uma conta, pode fazer uma agora de graça!</p>
+            <p class="logotxt">Links:</p>
+            <ul>
+                
+            </ul>
         </div>    
     </main>
     <script src="../js/cadastro.js"></script>

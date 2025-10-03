@@ -30,6 +30,10 @@ header {
   margin-top: -2.5rem; 
   margin-left: -2rem;
 }
+.sessao p{
+  font-weight: bold;
+  font-size: 2rem;
+}
 
 .titulo {
   text-align: center;
